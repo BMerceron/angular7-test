@@ -6,7 +6,6 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
-import { MatIconModule } from '@angular/material';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -16,6 +15,10 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { HeroFavoriteComponent } from './hero-favorite/hero-favorite.component';
+
+import { 
+  MatIconModule, 
+} from '@angular/material';
 
 @NgModule({
   declarations: [

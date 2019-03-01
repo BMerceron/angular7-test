@@ -18,11 +18,7 @@ import { HeroFavoriteComponent } from './hero-favorite/hero-favorite.component';
 
 import { 
   MatIconModule, 
-  MatMenuModule 
 } from '@angular/material';
-import {
-  BrowserAnimationsModule
-} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -43,8 +39,6 @@ import {
     ),
     FormsModule,
     MatIconModule,
-    MatMenuModule,
-    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

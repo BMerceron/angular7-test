@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { MessageService } from './message.service';
-import { Hero } from './hero';
+import { Hero } from './models/hero';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -56,6 +56,15 @@ export class HeroService {
         catchError(this.handleError('getHeroes', []))
       );
   }
+
+  getPlayer (): Observable<Hero[]> {
+    return this.http.get<Hero[]>(this.heroesUrl)
+      .pipe(
+        tap(_ => this.log('fetched heroes')),
+        catchError(this.handleError('getHeroes', []))
+      );
+  }
+
 
   /** PUT: update the hero on the server */
   updateHero (hero: Hero): Observable<any> {

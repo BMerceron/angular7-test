@@ -12,6 +12,8 @@ heroes: Hero[] = [];
 
 constructor(private heroService: HeroService) { }
 
+panelOpenState = false;
+
 ngOnInit() {
   this.getHeroes();
 }
@@ -19,7 +21,9 @@ ngOnInit() {
 getHeroes(): void {
   this.heroService.getHeroes()
     .subscribe(
-      heroes => this.heroes = heroes.filter(hero => hero.isFavorite == true),
-    );
+      heroes => {
+        this.heroes = heroes.filter(hero => hero.isFavorite == true)
+        
+      });
   }
 }

@@ -1,13 +1,46 @@
 <h3>My Favorites Heroes</h3>
-<div class="grid grid-pad">
+<!-- <mat-grid-list cols="4" rowHeight="3:1">
   <a *ngFor="let hero of heroes"
-      routerLink="/detail/{{hero.id}}">
-    <div class="module">
+    routerLink="/detail/{{hero.id}}">
+    <mat-grid-tile>
       <h4>{{hero.name}}</h4>
-    </div>
+    </mat-grid-tile>
   </a>
-</div>
-<div class="elseModule" *ngIf="heroes.length == 0">
-  <p>Tu n'as pas ajouté de héros à ta liste de favoris :(</p> 
-</div>
+  <div class="elseModule" *ngIf="heroes.length == 0">
+    <p>Tu n'as pas ajouté de héros à ta liste de favoris :(</p> 
+  </div>
+</mat-grid-list> -->
+
+<mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Personal data
+        </mat-panel-title>
+        <mat-panel-description>
+          Type your name and age
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <mat-form-field>
+        <input matInput placeholder="First name">
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="Age">
+      </mat-form-field>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Self aware panel
+        </mat-panel-title>
+        <mat-panel-description>
+          Currently I am {{panelOpenState ? 'open' : 'closed'}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>I'm visible because I am open</p>
+    </mat-expansion-panel>
+  </mat-accordion>
 <app-hero-search></app-hero-search>

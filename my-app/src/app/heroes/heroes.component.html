@@ -1,6 +1,29 @@
 <div>
+  <h3>Light Team</h3>
   <ul class="heroes">
-    <li *ngFor="let hero of heroes">
+    <li *ngFor="let hero of lightTeam">
+      <a routerLink="/detail/{{hero.id}}">
+          <span class="badge">{{hero.id}}</span> {{hero.name}}
+      </a>
+      <button class="delete" title="delete hero"
+        (click)="delete(hero)">x</button>
+      <app-hero-favorite [hero]="hero"></app-hero-favorite>
+    </li>
+  </ul>
+  <h3>Dark Team</h3>
+  <ul class="heroes">
+    <li *ngFor="let hero of darkTeam">
+      <a routerLink="/detail/{{hero.id}}">
+          <span class="badge">{{hero.id}}</span> {{hero.name}}
+      </a>
+      <button class="delete" title="delete hero"
+        (click)="delete(hero)">x</button>
+      <app-hero-favorite [hero]="hero"></app-hero-favorite>
+    </li>
+  </ul>
+  <h3>Mercenaries</h3>
+  <ul class="heroes">
+    <li *ngFor="let hero of mercenaryTeam">
       <a routerLink="/detail/{{hero.id}}">
           <span class="badge">{{hero.id}}</span> {{hero.name}}
       </a>

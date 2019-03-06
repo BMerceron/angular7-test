@@ -1,46 +1,63 @@
 <h3>My Favorites Heroes</h3>
-<!-- <mat-grid-list cols="4" rowHeight="3:1">
-  <a *ngFor="let hero of heroes"
-    routerLink="/detail/{{hero.id}}">
-    <mat-grid-tile>
-      <h4>{{hero.name}}</h4>
-    </mat-grid-tile>
-  </a>
-  <div class="elseModule" *ngIf="heroes.length == 0">
-    <p>Tu n'as pas ajouté de héros à ta liste de favoris :(</p> 
-  </div>
-</mat-grid-list> -->
-
-<mat-accordion>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Personal data
-        </mat-panel-title>
-        <mat-panel-description>
-          Type your name and age
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-  
-      <mat-form-field>
-        <input matInput placeholder="First name">
-      </mat-form-field>
-  
-      <mat-form-field>
-        <input matInput placeholder="Age">
-      </mat-form-field>
-    </mat-expansion-panel>
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Self aware panel
-        </mat-panel-title>
-        <mat-panel-description>
-          Currently I am {{panelOpenState ? 'open' : 'closed'}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
-    </mat-expansion-panel>
-  </mat-accordion>
-<app-hero-search></app-hero-search>
+<mat-grid-list cols="4" rowHeight="50px">
+  <mat-grid-tile colspan="2" rowspan="4">
+    <div>
+        <mat-accordion>
+          <mat-expansion-panel (opened)="lightPanelOpenState = true"
+                                (closed)="lightPanelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Light team ({{lightTeam.length}})
+              </mat-panel-title>
+              <mat-panel-description>
+                List of your favorite heroes in the LIGHT team.
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <a *ngFor="let hero of lightTeam"
+                routerLink="/detail/{{hero.id}}">
+              <div>
+                <h4>{{hero.name}}</h4>
+              </div>
+            </a>
+          </mat-expansion-panel>
+          <mat-expansion-panel (opened)="darkPanelOpenState = true"
+                                (closed)="darkPanelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+            dark team ({{darkTeam.length}})
+            </mat-panel-title>
+            <mat-panel-description>
+              List of your favorite heroes in the DARK team.
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+            <a *ngFor="let hero of darkTeam"
+            routerLink="/detail/{{hero.id}}">
+              <div>
+                <h4>{{hero.name}}</h4>
+              </div>
+            </a>
+          </mat-expansion-panel>
+          <mat-expansion-panel (opened)="mercenaryPanelOpenState = true"
+                                (closed)="mercenaryPanelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+              mercenary team ({{mercenaryTeam.length}})
+              </mat-panel-title>
+              <mat-panel-description>
+                List of your favorite heroes in the MERCENARY team.
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <a *ngFor="let hero of mercenaryTeam"
+            routerLink="/detail/{{hero.id}}">
+              <div>
+                <h4>{{hero.name}}</h4>
+              </div>
+            </a>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>          
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2" rowspan="4">
+    <app-hero-search></app-hero-search>
+  </mat-grid-tile>
+</mat-grid-list>

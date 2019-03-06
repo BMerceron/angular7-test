@@ -1,15 +1,11 @@
-h3 {
-  text-align: center;
-  margin-bottom: 0;
-}
-a {
-  text-decoration: none;
-  mat-grid-tile {
-    background-color: black;
-    text-transform: uppercase;
-    color: white;
+mat-grid-tile {
+  figure.mat-figure {
+    align-items: inherit;
+    justify-content: left;
   }
-  mat-grid-tile:hover {
-    border-color: 1px solid red;
+  a {
+    color: black;
   }
 }
+
+

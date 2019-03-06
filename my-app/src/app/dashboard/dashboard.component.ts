@@ -12,7 +12,15 @@ heroes: Hero[] = [];
 
 constructor(private heroService: HeroService) { }
 
-panelOpenState = false;
+//panel options
+lightPanelOpenState = true;
+darkPanelOpenState = true;
+mercernaryPanelOpenState = true;
+
+//datas
+lightTeam = [];
+darkTeam = [];
+mercenaryTeam = [];
 
 ngOnInit() {
   this.getHeroes();
@@ -23,7 +31,9 @@ getHeroes(): void {
     .subscribe(
       heroes => {
         this.heroes = heroes.filter(hero => hero.isFavorite == true)
-        
+        this.lightTeam = this.heroes.filter(hero => hero.team.name == 'Ligth Team');
+        this.darkTeam = this.heroes.filter(hero => hero.team.name == 'Dark Team');
+        this.mercenaryTeam = this.heroes.filter(hero => hero.team.name == 'Wings og Liberty');
       });
   }
 }
